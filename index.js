@@ -1,6 +1,7 @@
 const express = require('express')
 const { createClient } = require('@supabase/supabase-js')
 const moment = require('moment')
+require('moment-timezone');
 
 const app = express()
 
@@ -24,8 +25,8 @@ app.post('/location', async (req, res) => {
         return res.status(400).json({ error: 'Latitude and longitude are required' });
     }
 
-    // Get current date and time in the desired format
-    const date_time = moment().format('DD/MM/YYYY HH:mm:ss');
+    // Get current date and time in Thailand time zone
+    const date_time = moment().tz('Asia/Bangkok').format('DD/MM/YYYY HH:mm:ss');
 
     // Insert location into Supabase database
     const { data, error } = await supabase
