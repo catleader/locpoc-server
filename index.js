@@ -18,12 +18,15 @@ app.get('/hello', (req, res) => {
 })
 
 app.post('/location', async (req, res) => {
-    const { latitude, longitude } = req.body;
+    const { location } = req.body;
     console.log('request body:', req.body);
 
-    if (latitude === undefined || longitude === undefined) {
+    if (!location || !location.coords || location.coords.latitude === undefined || location.coords.longitude === undefined) {
         return res.status(400).json({ error: 'Latitude and longitude are required' });
     }
+
+    const { latitude, longitude } = location.coords;
+    console.log(`lattitude: ${latitude}, longitude: ${longitude}`);
 
     // Get current date and time in Thailand time zone
     const date_time = moment().tz('Asia/Bangkok').format('DD/MM/YYYY HH:mm:ss');
@@ -43,7 +46,7 @@ app.post('/location', async (req, res) => {
 
 const port = 3000;
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is runninggggggggg on http://localhost:${port}`);
 });
 
 module.exports = app;
