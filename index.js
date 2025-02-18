@@ -18,7 +18,7 @@ app.get('/hello', (req, res) => {
 })
 
 app.post('/location', async (req, res) => {
-    const { location } = req.body;
+    const { location, event, activity } = req.body;
     console.log('request body:', req.body);
 
     if (!location || !location.coords || location.coords.latitude === undefined || location.coords.longitude === undefined) {
@@ -26,7 +26,7 @@ app.post('/location', async (req, res) => {
     }
 
     const { latitude, longitude } = location.coords;
-    console.log(`lattitude: ${latitude}, longitude: ${longitude}`);
+    const { type, confidence } = activity || {};
 
     // Get current date and time in Thailand time zone
     const date_time = moment().tz('Asia/Bangkok').format('DD/MM/YYYY HH:mm:ss');
@@ -34,14 +34,21 @@ app.post('/location', async (req, res) => {
     // Insert location into Supabase database
     const { data, error } = await supabase
         .from('location')
-        .insert([{ lat: latitude, lng: longitude, date_time, remark: 'from nodejs' }])
+        .insert([{
+            lat: latitude,
+            lng: longitude,
+            date_time,
+            remark: 'from nodejs',
+            event: event || null,
+            type
+        }])
 
     if (error) {
         console.error('Error inserting location:', error);
         return res.status(500).json({ error: 'Failed to insert location' });
     }
 
-    res.status(200).json({ message: 'Location received and inserted' });
+    res.status(200).json({ message: 'Location received and inserted.' });
 })
 
 const port = 3000;
