@@ -18,7 +18,7 @@ app.get('/hello', (req, res) => {
 })
 
 app.post('/location', async (req, res) => {
-    const { location, event, activity } = req.body;
+    const { location } = req.body;
     console.log('request body:', req.body);
 
     if (!location || !location.coords || location.coords.latitude === undefined || location.coords.longitude === undefined) {
@@ -26,7 +26,8 @@ app.post('/location', async (req, res) => {
     }
 
     const { latitude, longitude } = location.coords;
-    const { type, confidence } = activity || {};
+    const event = location.event || null;
+    const { type, confidence } = location.activity || {};
 
     // Get current date and time in Thailand time zone
     const date_time = moment().tz('Asia/Bangkok').format('DD/MM/YYYY HH:mm:ss');
@@ -39,8 +40,8 @@ app.post('/location', async (req, res) => {
             lng: longitude,
             date_time,
             remark: 'from nodejs',
-            event: event || null,
-            type
+            event,
+            type,
         }])
 
     if (error) {
