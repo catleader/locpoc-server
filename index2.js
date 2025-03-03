@@ -15,7 +15,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 app.get('/hello', (req, res) => {
-    res.status(200).json({ message: 'Hello, user!' });
+    res.status(200).json({ message: 'Hello new world!!' });
 })
 
 app.post('/location', async (req, res) => {
