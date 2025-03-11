@@ -19,7 +19,7 @@ app.get('/hello', (req, res) => {
 })
 
 app.post('/location', async (req, res) => {
-    const { location, user } = req.body;
+    const { location, device } = req.body;
     console.log('request body:', req.body);
 
     if (!location || !location.coords || location.coords.latitude === undefined || location.coords.longitude === undefined) {
@@ -43,7 +43,7 @@ app.post('/location', async (req, res) => {
             remark: 'from nodejs',
             event,
             type,
-            'user': user,
+            device,
         }])
 
     if (error) {
@@ -71,7 +71,8 @@ app.get('/locations', async (req, res) => {
     let query = supabase
         .from('location')
         .select('id, date_time, lat, lng')
-        .gt('id', 734);
+        .gte('id', 1376)
+
 
     const { data, error } = await query;
 
@@ -105,7 +106,7 @@ app.get('/locations', async (req, res) => {
 
     console.log(`FilteredData ${filteredData.length} locations`);
 
-    const fileContent = filteredData.map(location => `${location.id}, ${location.date_time}, ${location.lat}, ${location.lng}`).join('\n');
+    const fileContent = filteredData.map(location => `${location.lat}, ${location.lng}, ${location.date_time}`).join('\n');
     fs.writeFileSync('locations.txt', fileContent);
 
     res.status(200).json({ message: 'Locations fetched and written to locations.txt' });
