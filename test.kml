@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Document>
+        <name>Background location path</name>
+        <Style id="locationPathStyle">
+            <LineStyle>
+                <color>ff0000ff</color>
+                <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="locationPointStyle">
+            <IconStyle>
+                <scale>0.8</scale>
+            </IconStyle>
+            <LabelStyle>
+                <color>ff000000</color>
+                <scale>1.0</scale>
+            </LabelStyle>
+        </Style>
+        <Placemark>
+            <name>Background location path</name>
+            <styleUrl>#locationPathStyle</styleUrl>
+            <LineString>
+                <tessellate>1</tessellate>
+                <coordinates>100.5018,13.7563,0
+100.502,13.7565,0
+100.5018,13.7563,0
+100.5022,13.7567,0
+100.5026,13.7571,0
+100.503,13.7575,0
+100.5034,13.7579,0
+100.5038,13.7583,0
+100.5042,13.7587,0
+100.5046,13.7591,0
+100.50500000000001,13.7595,0
+100.50540000000001,13.7599,0</coordinates>
+            </LineString>
+        </Placemark>
+        <Placemark>
+            <name>0</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.5018,13.7563,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>1</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.502,13.7565,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>2</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.5018,13.7563,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>3</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.5022,13.7567,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>4</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.5026,13.7571,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>5</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.503,13.7575,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>6</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.5034,13.7579,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>7</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.5038,13.7583,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>8</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.5042,13.7587,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>9</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.5046,13.7591,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>10</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.50500000000001,13.7595,0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>11</name>
+            <styleUrl>#locationPointStyle</styleUrl>
+            <Point>
+                <coordinates>100.50540000000001,13.7599,0</coordinates>
+            </Point>
+        </Placemark>
+    </Document>
+</kml>
